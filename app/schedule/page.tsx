@@ -133,23 +133,22 @@ export default function Schedule() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative h-[300px] flex items-center justify-center text-white">
-        <div className="absolute inset-0 hero-gradient" />
+      <section className="relative h-[300px] flex items-center justify-center text-white bg-sage">
         <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8">
-          <h1 className="text-5xl md:text-6xl font-serif font-bold mb-4">
+          <h1 className="text-5xl md:text-6xl font-bold mb-4">
             Class Schedule
           </h1>
-          <p className="text-xl md:text-2xl text-cream-100">
+          <p className="text-xl md:text-2xl">
             Find your perfect time to practice
           </p>
         </div>
       </section>
 
       {/* Schedule Grid */}
-      <section className="py-20 bg-cream-50">
+      <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12 text-center">
-            <p className="text-lg text-sage-600">
+            <p className="text-lg text-rich-black/70">
               All classes are held at our studio in Minneapolis-St. Paul.
               <br />
               Drop-ins welcome • Class passes available
@@ -162,36 +161,36 @@ export default function Schedule() {
                 key={day.day}
                 className={`bg-white rounded-lg shadow-md overflow-hidden animate-fade-in delay-${(index % 4 + 1) * 100}`}
               >
-                <div className="bg-sage-600 text-white px-6 py-4">
-                  <h2 className="text-2xl font-serif font-bold">{day.day}</h2>
+                <div className="bg-sage text-white px-6 py-4">
+                  <h2 className="text-2xl font-bold">{day.day}</h2>
                 </div>
                 <div className="p-6 space-y-4">
                   {day.classes.map((classItem, i) => (
                     <div
                       key={i}
-                      className="border-l-4 border-gold-400 pl-4 py-2"
+                      className="border-l-4 border-sage pl-4 py-2"
                     >
                       <div className="flex items-start justify-between mb-2">
                         <div>
-                          <h3 className="text-lg font-semibold text-sage-800">
+                          <h3 className="text-lg font-semibold text-rich-black">
                             {classItem.name}
                           </h3>
-                          <p className="text-sage-600 text-sm">
+                          <p className="text-rich-black/70 text-sm">
                             {classItem.level}
                           </p>
                         </div>
                         <div className="text-right">
-                          <p className="font-bold text-sage-800">
+                          <p className="font-bold text-rich-black">
                             {classItem.time}
                           </p>
-                          <p className="text-sm text-sage-600">
+                          <p className="text-sm text-rich-black/70">
                             {classItem.duration}
                           </p>
                         </div>
                       </div>
                       <Link
                         href="/contact"
-                        className="inline-block text-sm bg-sage-100 hover:bg-sage-200 text-sage-700 font-medium px-4 py-1 rounded transition-colors duration-200"
+                        className="inline-block text-sm bg-pale-blue hover:bg-sage hover:text-white text-rich-black font-medium px-4 py-1 rounded transition-colors duration-200"
                       >
                         Book This Class
                       </Link>
@@ -207,17 +206,17 @@ export default function Schedule() {
       {/* Private Sessions */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-sage-50 rounded-lg p-8 md:p-12 text-center">
-            <h2 className="text-3xl font-serif font-bold text-sage-800 mb-4">
+          <div className="bg-light-gray rounded-lg p-8 md:p-12 text-center">
+            <h2 className="text-3xl font-bold text-rich-black mb-4">
               Need a Different Time?
             </h2>
-            <p className="text-lg text-sage-700 mb-6">
+            <p className="text-lg text-rich-black/80 mb-6">
               Private sessions available by appointment. Flexible scheduling to
               fit your life.
             </p>
             <Link
               href="/contact"
-              className="inline-block bg-sage-600 hover:bg-sage-700 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-200 transform hover:scale-105"
+              className="inline-block bg-sage hover:bg-sage-700 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-200 transform hover:scale-105"
             >
               Schedule Private Session
             </Link>
@@ -226,45 +225,45 @@ export default function Schedule() {
       </section>
 
       {/* Policies */}
-      <section className="py-16 bg-cream-50">
+      <section className="py-16 bg-pale-blue">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-serif font-bold text-sage-800 mb-8 text-center">
+          <h2 className="text-3xl font-bold text-rich-black mb-8 text-center">
             Studio Policies
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-white rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-sage-800 mb-3">
+              <h3 className="text-xl font-semibold text-rich-black mb-3">
                 Arrival
               </h3>
-              <p className="text-sage-700">
+              <p className="text-rich-black/80">
                 Please arrive 10-15 minutes early to get settled and sign in.
                 Late arrivals may not be admitted to maintain a peaceful
                 environment.
               </p>
             </div>
             <div className="bg-white rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-sage-800 mb-3">
+              <h3 className="text-xl font-semibold text-rich-black mb-3">
                 Cancellation
               </h3>
-              <p className="text-sage-700">
+              <p className="text-rich-black/80">
                 Cancel at least 2 hours before class time for a full credit.
                 Late cancellations will be charged.
               </p>
             </div>
             <div className="bg-white rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-sage-800 mb-3">
+              <h3 className="text-xl font-semibold text-rich-black mb-3">
                 What to Bring
               </h3>
-              <p className="text-sage-700">
+              <p className="text-rich-black/80">
                 Mats and props provided, but you're welcome to bring your own.
                 Water bottle recommended.
               </p>
             </div>
             <div className="bg-white rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-sage-800 mb-3">
+              <h3 className="text-xl font-semibold text-rich-black mb-3">
                 First Time?
               </h3>
-              <p className="text-sage-700">
+              <p className="text-rich-black/80">
                 New students receive 20% off their first class. Just mention
                 it's your first visit when booking!
               </p>

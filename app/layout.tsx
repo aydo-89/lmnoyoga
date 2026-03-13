@@ -18,8 +18,8 @@ const lora = Lora({
 
 export const metadata: Metadata = {
   title: {
-    default: 'LMN Yoga | Yoga, Sound Baths & Wellness with Liane',
-    template: '%s | LMN Yoga',
+    default: 'LMNO Yoga | Yoga, Sound Baths & Wellness with Liane',
+    template: '%s | LMNO Yoga',
   },
   description:
     'Transform your practice with expert-led yoga classes, sound bath healing, and personalized wellness sessions in the Twin Cities. Specializing in Kundalini, Kriya, and restorative practices.',
@@ -40,8 +40,8 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://lmnoyoga.com',
-    siteName: 'LMN Yoga',
-    title: 'LMN Yoga | Yoga, Sound Baths & Wellness',
+    siteName: 'LMNO Yoga',
+    title: 'LMNO Yoga | Yoga, Sound Baths & Wellness',
     description:
       'Transform your practice with expert-led yoga classes, sound bath healing, and personalized wellness sessions.',
     images: [
@@ -49,13 +49,13 @@ export const metadata: Metadata = {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'LMN Yoga',
+        alt: 'LMNO Yoga',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'LMN Yoga | Yoga, Sound Baths & Wellness',
+    title: 'LMNO Yoga | Yoga, Sound Baths & Wellness',
     description:
       'Transform your practice with expert-led yoga classes, sound bath healing, and personalized wellness sessions.',
     images: ['/og-image.jpg'],

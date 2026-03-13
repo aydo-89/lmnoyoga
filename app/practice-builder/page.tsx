@@ -77,30 +77,29 @@ export default function PracticeBuilder() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative h-[300px] flex items-center justify-center text-white">
-        <div className="absolute inset-0 hero-gradient" />
+      <section className="relative h-[300px] flex items-center justify-center text-white bg-sage">
         <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8">
-          <h1 className="text-5xl md:text-6xl font-serif font-bold mb-4">
+          <h1 className="text-5xl md:text-6xl font-bold mb-4">
             AI Practice Builder
           </h1>
-          <p className="text-xl md:text-2xl text-cream-100">
+          <p className="text-xl md:text-2xl">
             Create your personalized yoga sequence
           </p>
         </div>
       </section>
 
       {/* Builder Form */}
-      <section className="py-20 bg-cream-50">
+      <section className="py-20 bg-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {!practice ? (
             <div className="bg-white rounded-lg shadow-lg p-8 md:p-12">
-              <h2 className="text-3xl font-serif font-bold text-sage-800 mb-8 text-center">
+              <h2 className="text-3xl font-bold text-rich-black mb-8 text-center">
                 Build Your Practice
               </h2>
 
               {/* Goal Selection */}
               <div className="mb-8">
-                <label className="block text-lg font-semibold text-sage-800 mb-4">
+                <label className="block text-lg font-semibold text-rich-black mb-4">
                   What's your goal today?
                 </label>
                 <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
@@ -110,12 +109,12 @@ export default function PracticeBuilder() {
                       onClick={() => setGoal(g.value)}
                       className={`p-4 rounded-lg border-2 transition-all duration-200 ${
                         goal === g.value
-                          ? 'border-sage-600 bg-sage-50 shadow-md'
-                          : 'border-sage-200 hover:border-sage-400'
+                          ? 'border-sage bg-pale-blue shadow-md'
+                          : 'border-silver hover:border-sage'
                       }`}
                     >
                       <div className="text-3xl mb-2">{g.icon}</div>
-                      <div className="text-sm font-medium text-sage-800">
+                      <div className="text-sm font-medium text-rich-black">
                         {g.label}
                       </div>
                     </button>
@@ -125,7 +124,7 @@ export default function PracticeBuilder() {
 
               {/* Level Selection */}
               <div className="mb-8">
-                <label className="block text-lg font-semibold text-sage-800 mb-4">
+                <label className="block text-lg font-semibold text-rich-black mb-4">
                   What's your level?
                 </label>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -135,11 +134,11 @@ export default function PracticeBuilder() {
                       onClick={() => setLevel(l.value)}
                       className={`p-4 rounded-lg border-2 transition-all duration-200 ${
                         level === l.value
-                          ? 'border-sage-600 bg-sage-50 shadow-md'
-                          : 'border-sage-200 hover:border-sage-400'
+                          ? 'border-sage bg-pale-blue shadow-md'
+                          : 'border-silver hover:border-sage'
                       }`}
                     >
-                      <div className="text-base font-medium text-sage-800">
+                      <div className="text-base font-medium text-rich-black">
                         {l.label}
                       </div>
                     </button>
@@ -149,7 +148,7 @@ export default function PracticeBuilder() {
 
               {/* Duration Selection */}
               <div className="mb-8">
-                <label className="block text-lg font-semibold text-sage-800 mb-4">
+                <label className="block text-lg font-semibold text-rich-black mb-4">
                   How much time do you have?
                 </label>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -159,11 +158,11 @@ export default function PracticeBuilder() {
                       onClick={() => setDuration(d.value)}
                       className={`p-4 rounded-lg border-2 transition-all duration-200 ${
                         duration === d.value
-                          ? 'border-sage-600 bg-sage-50 shadow-md'
-                          : 'border-sage-200 hover:border-sage-400'
+                          ? 'border-sage bg-pale-blue shadow-md'
+                          : 'border-silver hover:border-sage'
                       }`}
                     >
-                      <div className="text-base font-medium text-sage-800">
+                      <div className="text-base font-medium text-rich-black">
                         {d.label}
                       </div>
                     </button>
@@ -183,8 +182,8 @@ export default function PracticeBuilder() {
                 disabled={loading || !goal || !level || !duration}
                 className={`w-full py-4 rounded-lg font-semibold text-lg transition-all duration-200 ${
                   loading || !goal || !level || !duration
-                    ? 'bg-sage-300 text-sage-600 cursor-not-allowed'
-                    : 'bg-sage-600 hover:bg-sage-700 text-white transform hover:scale-105'
+                    ? 'bg-silver text-rich-black/50 cursor-not-allowed'
+                    : 'bg-sage hover:bg-sage-700 text-white transform hover:scale-105'
                 }`}
               >
                 {loading ? 'Generating Your Practice...' : 'Generate Practice'}
@@ -194,10 +193,10 @@ export default function PracticeBuilder() {
             <div className="space-y-6">
               {/* Practice Header */}
               <div className="bg-white rounded-lg shadow-lg p-8">
-                <h2 className="text-3xl font-serif font-bold text-sage-800 mb-2">
+                <h2 className="text-3xl font-bold text-rich-black mb-2">
                   {practice.title}
                 </h2>
-                <p className="text-lg text-sage-600">
+                <p className="text-lg text-rich-black/70">
                   Duration: {practice.duration}
                 </p>
               </div>
@@ -210,14 +209,14 @@ export default function PracticeBuilder() {
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div className="flex items-start justify-between mb-3">
-                    <h3 className="text-xl font-serif font-semibold text-sage-800">
+                    <h3 className="text-xl font-bold text-rich-black">
                       {index + 1}. {pose.name}
                     </h3>
-                    <span className="bg-gold-100 text-gold-800 px-3 py-1 rounded-full text-sm font-medium">
+                    <span className="bg-sage/10 text-sage px-3 py-1 rounded-full text-sm font-medium border border-sage">
                       {pose.duration}
                     </span>
                   </div>
-                  <p className="text-sage-700">{pose.description}</p>
+                  <p className="text-rich-black/80">{pose.description}</p>
                 </div>
               ))}
 
@@ -225,13 +224,13 @@ export default function PracticeBuilder() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
                   onClick={() => setPractice(null)}
-                  className="flex-1 bg-sage-600 hover:bg-sage-700 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200"
+                  className="flex-1 bg-sage hover:bg-sage-700 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200"
                 >
                   Create Another Practice
                 </button>
                 <button
                   onClick={() => window.print()}
-                  className="flex-1 bg-white hover:bg-cream-50 text-sage-700 font-semibold px-6 py-3 rounded-lg border-2 border-sage-300 transition-all duration-200"
+                  className="flex-1 bg-white hover:bg-pale-blue text-rich-black font-semibold px-6 py-3 rounded-lg border-2 border-silver transition-all duration-200"
                 >
                   Print Practice
                 </button>

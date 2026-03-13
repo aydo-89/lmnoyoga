@@ -2,13 +2,13 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="bg-sage-800 text-cream-50">
+    <footer className="bg-rich-black text-light-gray">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
           <div>
-            <h3 className="text-2xl font-serif font-bold mb-4">LMN Yoga</h3>
-            <p className="text-cream-200 mb-4">
+            <h3 className="text-2xl font-bold tracking-wider mb-4">LMNO YOGA</h3>
+            <p className="text-silver mb-4">
               Transforming lives through mindful movement, breath, and sound.
             </p>
             <div className="flex space-x-4">
@@ -17,7 +17,7 @@ export default function Footer() {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-cream-200 hover:text-gold-400 transition-colors duration-200"
+                className="text-silver hover:text-sage transition-colors duration-200"
                 aria-label="Instagram"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -28,7 +28,7 @@ export default function Footer() {
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-cream-200 hover:text-gold-400 transition-colors duration-200"
+                className="text-silver hover:text-sage transition-colors duration-200"
                 aria-label="Facebook"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -40,30 +40,30 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-serif font-semibold mb-4">Quick Links</h4>
+            <h4 className="text-lg font-bold mb-4">Quick Links</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/about" className="text-cream-200 hover:text-gold-400 transition-colors duration-200">
+                <Link href="/about" className="text-silver hover:text-sage transition-colors duration-200">
                   About
                 </Link>
               </li>
               <li>
-                <Link href="/classes" className="text-cream-200 hover:text-gold-400 transition-colors duration-200">
+                <Link href="/classes" className="text-silver hover:text-sage transition-colors duration-200">
                   Classes & Services
                 </Link>
               </li>
               <li>
-                <Link href="/practice-builder" className="text-cream-200 hover:text-gold-400 transition-colors duration-200">
+                <Link href="/practice-builder" className="text-silver hover:text-sage transition-colors duration-200">
                   Practice Builder
                 </Link>
               </li>
               <li>
-                <Link href="/schedule" className="text-cream-200 hover:text-gold-400 transition-colors duration-200">
+                <Link href="/schedule" className="text-silver hover:text-sage transition-colors duration-200">
                   Schedule
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-cream-200 hover:text-gold-400 transition-colors duration-200">
+                <Link href="/contact" className="text-silver hover:text-sage transition-colors duration-200">
                   Contact
                 </Link>
               </li>
@@ -72,8 +72,8 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-serif font-semibold mb-4">Contact</h4>
-            <ul className="space-y-2 text-cream-200">
+            <h4 className="text-lg font-bold mb-4">Contact</h4>
+            <ul className="space-y-2 text-silver">
               <li>Email: hello@lmnoyoga.com</li>
               <li>Phone: (555) 123-4567</li>
               <li>Minneapolis-St. Paul, MN</li>
@@ -81,8 +81,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-sage-700 text-center text-cream-300">
-          <p>&copy; {new Date().getFullYear()} LMN Yoga. All rights reserved.</p>
+        <div className="mt-8 pt-8 border-t border-silver/20 text-center text-silver">
+          <p>&copy; {new Date().getFullYear()} LMNO Yoga. All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -21,7 +21,7 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-serif font-bold text-sage-700">LMN Yoga</span>
+            <span className="text-2xl font-bold tracking-wider text-sage">LMNO YOGA</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -30,7 +30,7 @@ export default function Navigation() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sage-700 hover:text-sage-900 transition-colors duration-200 font-medium"
+                className="text-rich-black hover:text-sage transition-colors duration-200 font-medium"
               >
                 {link.label}
               </Link>
@@ -40,7 +40,7 @@ export default function Navigation() {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-sage-700 hover:text-sage-900 hover:bg-sage-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sage-500"
+            className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-rich-black hover:text-sage hover:bg-light-gray focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sage"
             aria-expanded="false"
           >
             <span className="sr-only">Open main menu</span>
@@ -81,13 +81,13 @@ export default function Navigation() {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="md:hidden bg-white border-t border-sage-200">
+        <div className="md:hidden bg-white border-t border-silver">
           <div className="px-2 pt-2 pb-3 space-y-1">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="block px-3 py-2 rounded-md text-base font-medium text-sage-700 hover:text-sage-900 hover:bg-sage-50 transition-colors duration-200"
+                className="block px-3 py-2 rounded-md text-base font-medium text-rich-black hover:text-sage hover:bg-light-gray transition-colors duration-200"
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}
