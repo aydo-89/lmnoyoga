@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Cormorant_Garamond, Italianno } from 'next/font/google';
+import { Cormorant_Garamond } from 'next/font/google';
 import './globals.css';
 import Navigation from './components/Navigation';
 import CursorGlow from './components/CursorGlow';
@@ -11,12 +11,6 @@ const cormorant = Cormorant_Garamond({
   display: 'swap',
 });
 
-const italianno = Italianno({
-  subsets: ['latin'],
-  weight: ['400'],
-  variable: '--font-cursive',
-  display: 'swap',
-});
 
 export const metadata: Metadata = {
   title: {
@@ -48,7 +42,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${italianno.variable}`}>
+    <html lang="en" className={cormorant.variable}>
       <body className="antialiased bg-[#0a0a0a] text-[#f4f4f4]">
         <CursorGlow />
         <Navigation />

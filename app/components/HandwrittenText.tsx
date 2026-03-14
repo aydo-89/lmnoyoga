@@ -60,10 +60,11 @@ export default function HandwrittenText({ text, className = '' }: HandwrittenTex
       <p
         className="text-center leading-[1.4]"
         style={{
-          fontFamily: "var(--font-cursive), 'Italianno', cursive",
-          fontSize: 'clamp(2.5rem, 6vw, 5rem)',
-          fontWeight: 400,
-          letterSpacing: '0.02em',
+          fontFamily: "var(--font-cormorant), 'Cormorant Garamond', serif",
+          fontSize: 'clamp(2.2rem, 5vw, 4.5rem)',
+          fontWeight: 300,
+          letterSpacing: '0.04em',
+          fontStyle: 'normal',
         }}
         aria-label={text}
       >
