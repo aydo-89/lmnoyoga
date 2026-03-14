@@ -61,6 +61,12 @@ export default function About() {
             </div>
           </ScrollReveal>
 
+          <ScrollReveal variant="slow">
+            <p className="mt-20 font-display text-2xl md:text-3xl font-light italic text-[#f4f4f4]/25 tracking-editorial">
+              let movement nurture openings
+            </p>
+          </ScrollReveal>
+
           <ScrollReveal>
             <div className="mt-16 pt-12 border-t border-[#f4f4f4]/[0.04]">
               <p className="text-[#f4f4f4]/30 text-base leading-relaxed">
