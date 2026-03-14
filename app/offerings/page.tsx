@@ -19,6 +19,11 @@ const communityLinks = [
     url: 'https://wck.org/',
     description: 'Nourishing communities through food',
   },
+  {
+    name: 'Community Aid Network MN',
+    url: 'https://www.canmn.org/',
+    description: 'Grassroots mutual aid in Minneapolis',
+  },
 ];
 
 export default function Offerings() {
