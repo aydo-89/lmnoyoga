@@ -5,7 +5,7 @@ import ScrollReveal from './components/ScrollReveal';
 
 export const metadata: Metadata = {
   title: 'LMNO',
-  description: 'Yoga and sound.',
+  description: 'Yoga + Sound. In-person & virtual.',
 };
 
 export default function Home() {
@@ -36,7 +36,12 @@ export default function Home() {
             <div className="flex items-center justify-center gap-6 mt-6 animate-fade-in opacity-0 delay-800">
               <div className="h-px w-12 bg-[#9DBBAE]/40" />
               <span className="text-sm md:text-base tracking-[0.5em] uppercase text-[#f4f4f4]/70 font-display">
-                Yoga and Sound
+                Yoga + Sound
+              </span>
+            </div>
+            <div className="mt-4 animate-fade-in opacity-0 delay-800">
+              <span className="text-base md:text-lg tracking-[0.35em] uppercase text-[#f4f4f4]/40 font-display">
+                In-Person & Virtual
               </span>
               <div className="h-px w-12 bg-[#9DBBAE]/40" />
             </div>

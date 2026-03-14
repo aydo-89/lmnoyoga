@@ -25,7 +25,7 @@ export default function About() {
           <ScrollReveal variant="slow">
             <div className="space-y-8 text-[#f4f4f4]/45 text-lg leading-[1.9]">
               <p className="font-display text-2xl md:text-3xl font-light leading-[1.6] text-[#f4f4f4]/55">
-                Over twenty years of practice. It started as a way back to myself.
+                My journey in yoga and sound started as a way back to myself.
               </p>
 
               <p>
