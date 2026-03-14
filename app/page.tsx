@@ -50,64 +50,76 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== INTRO ===== */}
-      <section className="py-40 px-6 lg:px-12">
-        <div className="max-w-3xl mx-auto text-center">
+      {/* ===== QUOTE — Let movement nurture openings ===== */}
+      <section className="py-32 px-6 lg:px-12">
+        <div className="max-w-5xl mx-auto text-center">
           <ScrollReveal variant="slow">
-            <p className="font-display text-2xl md:text-4xl font-light leading-[1.6] text-[#f4f4f4]/70">
-              A practice rooted in Himalayan Kriya yoga. Deep restoration through resonance.
+            <p className="font-display text-3xl md:text-5xl lg:text-6xl font-light leading-[1.3] text-[#f4f4f4]/60 italic">
+              Let movement nurture openings
             </p>
           </ScrollReveal>
           <ScrollReveal>
-            <div className="ornament-line w-24 mx-auto mt-16" />
+            <div className="ornament-line w-24 mx-auto mt-12" />
           </ScrollReveal>
         </div>
       </section>
 
-      {/* ===== QUOTE ===== */}
-      <section className="relative py-48 px-6 lg:px-12 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0d0d0d] to-[#0a0a0a]" />
-        <div className="relative z-10 max-w-5xl mx-auto">
-          <ScrollReveal variant="slow">
-            <blockquote className="font-display text-4xl md:text-6xl lg:text-7xl font-light leading-[1.2] text-[#f4f4f4]/60 italic text-center">
-              Let movement nurture openings
-            </blockquote>
-          </ScrollReveal>
-        </div>
-      </section>
+      {/* ===== 4 BLOCKS — Yoga, Sound Baths, Community Support, Contact ===== */}
+      <section className="py-20 px-6 lg:px-12">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
+            {/* Yoga */}
+            <ScrollReveal>
+              <Link href="/offerings" className="group block p-10 md:p-16 border-b border-r border-[#f4f4f4]/[0.03] hover:bg-[#f4f4f4]/[0.02] transition-all duration-700">
+                <span className="text-xs tracking-[0.5em] text-[#9DBBAE]/50 font-display">01</span>
+                <h3 className="font-display text-4xl md:text-5xl font-light tracking-editorial mt-4 mb-6 text-[#f4f4f4] group-hover:text-[#9DBBAE] transition-colors duration-700">
+                  Yoga
+                </h3>
+                <p className="text-[#f4f4f4]/40 text-lg leading-relaxed max-w-sm">
+                  A practice rooted in Himalayan Kriya yoga. Breath, movement, and presence.
+                </p>
+              </Link>
+            </ScrollReveal>
 
-      <div className="section-divider" />
+            {/* Sound Baths */}
+            <ScrollReveal>
+              <Link href="/offerings" className="group block p-10 md:p-16 border-b border-[#f4f4f4]/[0.03] hover:bg-[#f4f4f4]/[0.02] transition-all duration-700">
+                <span className="text-xs tracking-[0.5em] text-[#9DBBAE]/50 font-display">02</span>
+                <h3 className="font-display text-4xl md:text-5xl font-light tracking-editorial mt-4 mb-6 text-[#f4f4f4] group-hover:text-[#9DBBAE] transition-colors duration-700">
+                  Sound Baths
+                </h3>
+                <p className="text-[#f4f4f4]/40 text-lg leading-relaxed max-w-sm">
+                  Crystal bowls, gongs, and overtone chimes. Deep restoration through resonance.
+                </p>
+              </Link>
+            </ScrollReveal>
 
-      {/* ===== CTA ===== */}
-      <section className="py-40 px-6 lg:px-12">
-        <div className="max-w-3xl mx-auto text-center">
-          <ScrollReveal>
-            <h2 className="font-display text-5xl md:text-7xl font-light tracking-editorial mb-16 text-[#f4f4f4]">
-              Begin
-            </h2>
-          </ScrollReveal>
-          <ScrollReveal variant="stagger">
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Link
-                href="/about"
-                className="hover-reveal-line border border-[#f4f4f4]/10 hover:border-[#9DBBAE]/40 text-[#f4f4f4]/60 hover:text-[#f4f4f4] text-sm tracking-[0.3em] uppercase px-12 py-5 transition-all duration-700"
-              >
-                About
+            {/* Community Support */}
+            <ScrollReveal>
+              <Link href="/offerings#community" className="group block p-10 md:p-16 border-r border-[#f4f4f4]/[0.03] hover:bg-[#f4f4f4]/[0.02] transition-all duration-700">
+                <span className="text-xs tracking-[0.5em] text-[#9DBBAE]/50 font-display">03</span>
+                <h3 className="font-display text-4xl md:text-5xl font-light tracking-editorial mt-4 mb-6 text-[#f4f4f4] group-hover:text-[#9DBBAE] transition-colors duration-700">
+                  Community
+                </h3>
+                <p className="text-[#f4f4f4]/40 text-lg leading-relaxed max-w-sm">
+                  Practice extends beyond the mat. Supporting organizations doing meaningful work.
+                </p>
               </Link>
-              <Link
-                href="/offerings"
-                className="hover-reveal-line border border-[#f4f4f4]/10 hover:border-[#9DBBAE]/40 text-[#f4f4f4]/60 hover:text-[#f4f4f4] text-sm tracking-[0.3em] uppercase px-12 py-5 transition-all duration-700"
-              >
-                Offerings
+            </ScrollReveal>
+
+            {/* Contact */}
+            <ScrollReveal>
+              <Link href="/contact" className="group block p-10 md:p-16 hover:bg-[#f4f4f4]/[0.02] transition-all duration-700">
+                <span className="text-xs tracking-[0.5em] text-[#9DBBAE]/50 font-display">04</span>
+                <h3 className="font-display text-4xl md:text-5xl font-light tracking-editorial mt-4 mb-6 text-[#f4f4f4] group-hover:text-[#9DBBAE] transition-colors duration-700">
+                  Contact
+                </h3>
+                <p className="text-[#f4f4f4]/40 text-lg leading-relaxed max-w-sm">
+                  Reach out. We would love to hear from you.
+                </p>
               </Link>
-              <Link
-                href="/contact"
-                className="hover-reveal-line border border-[#f4f4f4]/10 hover:border-[#9DBBAE]/40 text-[#f4f4f4]/60 hover:text-[#f4f4f4] text-sm tracking-[0.3em] uppercase px-12 py-5 transition-all duration-700"
-              >
-                Contact
-              </Link>
-            </div>
-          </ScrollReveal>
+            </ScrollReveal>
+          </div>
         </div>
       </section>
 

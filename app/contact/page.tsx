@@ -41,7 +41,7 @@ export default function Contact() {
             <form onSubmit={handleSubmit} className="space-y-12">
               <ScrollReveal>
                 <div>
-                  <label className="block text-xs tracking-[0.5em] uppercase text-[#f4f4f4]/20 mb-4 font-display">
+                  <label className="block text-sm tracking-[0.3em] uppercase text-[#f4f4f4]/50 mb-4 font-display font-medium">
                     Name
                   </label>
                   <input
@@ -49,14 +49,14 @@ export default function Contact() {
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full bg-transparent border-b border-[#f4f4f4]/[0.06] focus:border-[#9DBBAE]/40 text-[#f4f4f4]/80 font-display text-2xl py-4 outline-none transition-colors duration-700"
+                    className="w-full bg-transparent border-b border-[#f4f4f4]/15 focus:border-[#9DBBAE]/40 text-[#f4f4f4]/90 font-display text-xl md:text-2xl py-4 outline-none transition-colors duration-700"
                   />
                 </div>
               </ScrollReveal>
 
               <ScrollReveal>
                 <div>
-                  <label className="block text-xs tracking-[0.5em] uppercase text-[#f4f4f4]/20 mb-4 font-display">
+                  <label className="block text-sm tracking-[0.3em] uppercase text-[#f4f4f4]/50 mb-4 font-display font-medium">
                     Email
                   </label>
                   <input
@@ -64,14 +64,14 @@ export default function Contact() {
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full bg-transparent border-b border-[#f4f4f4]/[0.06] focus:border-[#9DBBAE]/40 text-[#f4f4f4]/80 font-display text-2xl py-4 outline-none transition-colors duration-700"
+                    className="w-full bg-transparent border-b border-[#f4f4f4]/15 focus:border-[#9DBBAE]/40 text-[#f4f4f4]/90 font-display text-xl md:text-2xl py-4 outline-none transition-colors duration-700"
                   />
                 </div>
               </ScrollReveal>
 
               <ScrollReveal>
                 <div>
-                  <label className="block text-xs tracking-[0.5em] uppercase text-[#f4f4f4]/20 mb-4 font-display">
+                  <label className="block text-sm tracking-[0.3em] uppercase text-[#f4f4f4]/50 mb-4 font-display font-medium">
                     Message
                   </label>
                   <textarea
@@ -79,7 +79,7 @@ export default function Contact() {
                     rows={4}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full bg-transparent border-b border-[#f4f4f4]/[0.06] focus:border-[#9DBBAE]/40 text-[#f4f4f4]/80 font-display text-2xl py-4 outline-none transition-colors duration-700 resize-none"
+                    className="w-full bg-transparent border-b border-[#f4f4f4]/15 focus:border-[#9DBBAE]/40 text-[#f4f4f4]/90 font-display text-xl md:text-2xl py-4 outline-none transition-colors duration-700 resize-none"
                   />
                 </div>
               </ScrollReveal>
@@ -97,8 +97,8 @@ export default function Contact() {
 
           <ScrollReveal>
             <div className="mt-32 border-t border-[#f4f4f4]/[0.04] pt-16 space-y-4">
-              <p className="text-[#f4f4f4]/25 font-display text-lg">hello@lmnoyoga.com</p>
-              <p className="text-[#f4f4f4]/15 font-display text-lg">Minneapolis-St. Paul, Minnesota</p>
+              <p className="text-[#f4f4f4]/40 font-display text-lg">hello@lmnoyoga.com</p>
+              <p className="text-[#f4f4f4]/25 font-display text-lg">Minneapolis-St. Paul, Minnesota</p>
             </div>
           </ScrollReveal>
         </div>
