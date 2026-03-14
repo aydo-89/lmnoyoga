@@ -67,23 +67,31 @@ export default function HandwrittenText({ text, className = '' }: HandwrittenTex
         }}
         aria-label={text}
       >
-        {text.split('').map((char, i) => (
-          <span
-            key={i}
-            className="inline-block transition-all"
-            style={{
-              opacity: i < visibleCount ? 1 : 0,
-              transform: i < visibleCount ? 'translateY(0)' : 'translateY(8px)',
-              color: 'rgba(244, 244, 244, 0.50)',
-              transitionDuration: '600ms',
-              transitionTimingFunction: 'cubic-bezier(0.23, 1, 0.32, 1)',
-              // Preserve spaces
-              width: char === ' ' ? '0.3em' : undefined,
-            }}
-          >
-            {char === ' ' ? '\u00A0' : char}
-          </span>
-        ))}
+        {text.split('').map((char, i) => {
+          // Check if this character is the first letter of a word
+          const isWordStart = i === 0 || text[i - 1] === ' ';
+          const isLetter = char !== ' ';
+          const isInitial = isWordStart && isLetter;
+
+          return (
+            <span
+              key={i}
+              className="inline-block transition-all"
+              style={{
+                opacity: i < visibleCount ? 1 : 0,
+                transform: i < visibleCount ? 'translateY(0)' : 'translateY(8px)',
+                color: isInitial
+                  ? 'rgba(157, 187, 174, 0.75)'  // sage accent for L, M, N, O
+                  : 'rgba(244, 244, 244, 0.45)',
+                transitionDuration: '600ms',
+                transitionTimingFunction: 'cubic-bezier(0.23, 1, 0.32, 1)',
+                width: char === ' ' ? '0.3em' : undefined,
+              }}
+            >
+              {char === ' ' ? '\u00A0' : char}
+            </span>
+          );
+        })}
       </p>
     </div>
   );
