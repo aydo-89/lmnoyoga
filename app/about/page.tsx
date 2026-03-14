@@ -15,6 +15,13 @@ export default function About() {
           <h1 className="font-display text-4xl md:text-5xl font-light tracking-editorial text-[#f4f4f4]/90 animate-fade-in opacity-0">
             Liane Olson
           </h1>
+          <p className="mt-4 tracking-[0.6em] uppercase text-sm font-display animate-fade-in opacity-0 delay-800">
+            <span className="text-[#f4f4f4]/25">L</span>
+            <span className="text-[#f4f4f4]/15 mx-1">·</span>
+            <span className="text-[#9DBBAE]/50">MN</span>
+            <span className="text-[#f4f4f4]/15 mx-1">·</span>
+            <span className="text-[#f4f4f4]/25">O</span>
+          </p>
         </div>
       </section>
 
