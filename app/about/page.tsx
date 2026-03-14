@@ -31,9 +31,7 @@ export default function About() {
               <p>
                 Diagnosed with a chronic pain disorder in my early twenties, I turned
                 to yoga not as a trend or a hobby but as a lifeline. What began as
-                self-care became discipline. Discipline became devotion. And somewhere
-                along the way, the practice stopped being something I did and became
-                something I am.
+                self-care became discipline, and discipline became devotion.
               </p>
 
               <p>

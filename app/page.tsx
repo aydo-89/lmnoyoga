@@ -38,11 +38,6 @@ export default function Home() {
               <span className="text-sm md:text-base tracking-[0.5em] uppercase text-[#f4f4f4]/70 font-display">
                 Yoga + Sound
               </span>
-            </div>
-            <div className="mt-4 animate-fade-in opacity-0 delay-800">
-              <span className="text-base md:text-lg tracking-[0.35em] uppercase text-[#f4f4f4]/40 font-display">
-                In-Person & Virtual
-              </span>
               <div className="h-px w-12 bg-[#9DBBAE]/40" />
             </div>
           </div>
