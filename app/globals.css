@@ -2,31 +2,46 @@
 
 @layer base {
   :root {
-    --font-inter: 'Inter', system-ui, sans-serif;
-    --font-lora: 'Lora', Georgia, serif;
+    --color-sage: #9DBBAE;
+    --color-light: #F4F4F4;
+    --color-pale: #E0E8F0;
+    --color-silver: #D3D9DF;
+    --color-dark: #0a0a0a;
+    --color-dim: #1a1a1a;
   }
 
   body {
-    background-color: #ECECEC;
-    color: #1A1A1A;
+    font-family: var(--font-cormorant), 'Times New Roman', serif;
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    -webkit-font-smoothing: antialiased;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-inter), system-ui, sans-serif;
-    font-weight: 700;
+  ::selection {
+    background-color: rgba(157, 187, 174, 0.3);
+    color: #fff;
   }
 }
 
-/* Smooth scroll behavior */
 html {
   scroll-behavior: smooth;
 }
 
-/* Fade-in animation */
+/* Typography */
+.font-display {
+  font-family: var(--font-cormorant), 'Times New Roman', serif;
+}
+
+/* Fade in */
 @keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -34,28 +49,67 @@ html {
   }
 }
 
+@keyframes revealLine {
+  from { width: 0; }
+  to { width: 60px; }
+}
+
 .animate-fade-in {
-  animation: fadeIn 0.6s ease-out forwards;
+  animation: fadeIn 1.5s ease-out forwards;
 }
 
-/* Staggered animation delays */
-.delay-100 {
-  animation-delay: 100ms;
+.animate-fade-up {
+  animation: fadeUp 1.2s ease-out forwards;
 }
 
-.delay-200 {
-  animation-delay: 200ms;
+.animate-reveal-line {
+  animation: revealLine 1s ease-out 0.8s forwards;
 }
 
-.delay-300 {
-  animation-delay: 300ms;
-}
+.delay-200 { animation-delay: 200ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-600 { animation-delay: 600ms; }
+.delay-800 { animation-delay: 800ms; }
+.delay-1000 { animation-delay: 1000ms; }
 
-.delay-400 {
-  animation-delay: 400ms;
-}
-
-/* Video hero overlay */
+/* Video overlay - dark and mysterious */
 .video-overlay {
-  background: rgba(157, 187, 174, 0.7);
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 10, 10, 0.4) 0%,
+    rgba(10, 10, 10, 0.2) 40%,
+    rgba(10, 10, 10, 0.4) 70%,
+    rgba(10, 10, 10, 0.85) 100%
+  );
+}
+
+/* Subtle letter spacing for headings */
+.tracking-editorial {
+  letter-spacing: 0.15em;
+}
+
+.tracking-wide-editorial {
+  letter-spacing: 0.3em;
+}
+
+/* Thin separator line */
+.separator {
+  width: 0;
+  height: 1px;
+  background-color: var(--color-sage);
+}
+
+/* Page transition */
+.page-content {
+  animation: fadeUp 0.8s ease-out forwards;
+}
+
+/* Scroll indicator */
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.4; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(8px); }
+}
+
+.scroll-indicator {
+  animation: scrollPulse 2s ease-in-out infinite;
 }

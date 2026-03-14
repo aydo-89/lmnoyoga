@@ -1,28 +1,23 @@
 import type { Metadata } from 'next';
-import { Inter, Lora } from 'next/font/google';
+import { Cormorant_Garamond } from 'next/font/google';
+import localFont from 'next/font/local';
 import './globals.css';
 import Navigation from './components/Navigation';
-import Footer from './components/Footer';
 
-const inter = Inter({
+const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-});
-
-const lora = Lora({
-  subsets: ['latin'],
-  variable: '--font-lora',
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-cormorant',
   display: 'swap',
 });
 
 export const metadata: Metadata = {
   title: {
-    default: 'LMNO Yoga | Yoga, Sound Baths & Wellness with Liane',
-    template: '%s | LMNO Yoga',
+    default: 'LMNO',
+    template: '%s — LMNO',
   },
   description:
-    'Transform your practice with expert-led yoga classes, sound bath healing, and personalized wellness sessions in the Twin Cities. Specializing in Kundalini, Kriya, and restorative practices.',
+    'Yoga, sound healing, and mindful movement.',
   keywords: [
     'yoga',
     'kundalini yoga',
@@ -40,25 +35,9 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://lmnoyoga.com',
-    siteName: 'LMNO Yoga',
-    title: 'LMNO Yoga | Yoga, Sound Baths & Wellness',
-    description:
-      'Transform your practice with expert-led yoga classes, sound bath healing, and personalized wellness sessions.',
-    images: [
-      {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'LMNO Yoga',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'LMNO Yoga | Yoga, Sound Baths & Wellness',
-    description:
-      'Transform your practice with expert-led yoga classes, sound bath healing, and personalized wellness sessions.',
-    images: ['/og-image.jpg'],
+    siteName: 'LMNO',
+    title: 'LMNO',
+    description: 'Yoga, sound healing, and mindful movement.',
   },
   robots: {
     index: true,
@@ -72,11 +51,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${lora.variable}`}>
-      <body className="font-sans antialiased">
+    <html lang="en" className={cormorant.variable}>
+      <body className="antialiased bg-[#0a0a0a] text-[#f4f4f4]">
         <Navigation />
-        <main className="min-h-screen">{children}</main>
-        <Footer />
+        <main>{children}</main>
       </body>
     </html>
   );

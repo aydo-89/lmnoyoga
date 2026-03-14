@@ -2,58 +2,15 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Home',
-  description:
-    'Transform your practice with expert-led yoga classes, sound bath healing, and personalized wellness sessions in the Twin Cities.',
+  title: 'LMNO',
+  description: 'Yoga, sound healing, and mindful movement.',
 };
 
 export default function Home() {
-  const offerings = [
-    {
-      title: 'Yoga Classes',
-      description:
-        'Dynamic Vinyasa flows and restorative practices designed to build strength, flexibility, and inner peace.',
-      icon: '🧘‍♀️',
-    },
-    {
-      title: 'Sound Baths',
-      description:
-        'Immersive sound healing experiences using crystal bowls, gongs, and chimes to restore balance and harmony.',
-      icon: '🎶',
-    },
-    {
-      title: 'Kundalini & Kriya',
-      description:
-        'Traditional practices combining breath work, meditation, and movement to awaken your vital energy.',
-      icon: '✨',
-    },
-    {
-      title: 'Private Sessions',
-      description:
-        'Personalized one-on-one guidance tailored to your unique needs, goals, and wellness journey.',
-      icon: '🌟',
-    },
-  ];
-
-  const testimonials = [
-    {
-      text: "Liane's classes have transformed my practice. Her deep knowledge and warm presence create a truly healing space.",
-      author: 'Sarah M.',
-    },
-    {
-      text: "The sound baths are unlike anything I've experienced. I leave feeling completely renewed and centered.",
-      author: 'Michael T.',
-    },
-    {
-      text: "Her Kundalini sessions helped me break through barriers I didn't even know I had. Life-changing work.",
-      author: 'Jessica L.',
-    },
-  ];
-
   return (
     <>
-      {/* Video Hero Section */}
-      <section className="relative h-[600px] flex items-center justify-center text-white overflow-hidden">
+      {/* Full-screen Video Hero */}
+      <section className="relative h-screen w-full overflow-hidden">
         {/* Background Video */}
         <video
           autoPlay
@@ -66,111 +23,139 @@ export default function Home() {
           <source src="/hero-bg.mp4" type="video/mp4" />
         </video>
 
-        {/* Sage Green Overlay */}
+        {/* Dark mysterious overlay */}
         <div className="absolute inset-0 video-overlay" />
 
-        <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
-            Find Your Balance
+        {/* Content */}
+        <div className="relative z-10 h-full flex flex-col items-center justify-center px-6">
+          <h1 className="font-display text-7xl md:text-9xl font-light tracking-editorial text-[#f4f4f4] animate-fade-in opacity-0">
+            LMNO
           </h1>
-          <p className="text-xl md:text-2xl mb-8 animate-fade-in delay-100">
-            Yoga, Sound Healing & Mindful Movement for Body and Soul
+          <div className="separator animate-reveal-line mt-8 mb-6" />
+          <p className="text-sm md:text-base tracking-wide-editorial uppercase text-[#f4f4f4]/60 animate-fade-in opacity-0 delay-600">
+            Yoga &nbsp;&middot;&nbsp; Sound &nbsp;&middot;&nbsp; Stillness
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in delay-200">
-            <Link
-              href="/classes"
-              className="bg-sage hover:bg-sage-700 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-200 transform hover:scale-105"
-            >
-              Explore Classes
-            </Link>
-            <Link
-              href="/practice-builder"
-              className="bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white font-semibold px-8 py-3 rounded-lg transition-all duration-200 border-2 border-white/50"
-            >
-              Build Your Practice
-            </Link>
-          </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 scroll-indicator">
+          <svg
+            width="20"
+            height="30"
+            viewBox="0 0 20 30"
+            fill="none"
+            className="text-[#f4f4f4]/40"
+          >
+            <rect
+              x="1"
+              y="1"
+              width="18"
+              height="28"
+              rx="9"
+              stroke="currentColor"
+              strokeWidth="1"
+            />
+            <circle cx="10" cy="10" r="2" fill="currentColor" />
+          </svg>
         </div>
       </section>
 
-      {/* What We Offer */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-rich-black mb-4">
-              What We Offer
-            </h2>
-            <p className="text-lg text-rich-black/70 max-w-2xl mx-auto">
-              Discover a range of practices designed to nourish your body, calm your mind, and awaken your spirit.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {offerings.map((offering, index) => (
-              <div
-                key={offering.title}
-                className={`bg-pale-blue rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow duration-200 animate-fade-in delay-${(index + 1) * 100}`}
-              >
-                <div className="text-5xl mb-4">{offering.icon}</div>
-                <h3 className="text-2xl font-bold text-rich-black mb-3">
-                  {offering.title}
+      {/* Offerings - minimal grid */}
+      <section className="py-32 px-6 lg:px-12">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-20">
+            {[
+              {
+                title: 'Yoga',
+                text: 'Vinyasa flows and restorative practices. Strength, flexibility, presence.',
+              },
+              {
+                title: 'Sound Healing',
+                text: 'Crystal bowls, gongs, and vibration. Deep restoration through resonance.',
+              },
+              {
+                title: 'Kundalini',
+                text: 'Breath, movement, and meditation. Awakening energy from within.',
+              },
+              {
+                title: 'Private Sessions',
+                text: 'One-on-one guidance shaped to your body, your goals, your pace.',
+              },
+            ].map((item) => (
+              <div key={item.title} className="group">
+                <h3 className="font-display text-3xl md:text-4xl font-light tracking-editorial mb-4 text-[#f4f4f4]">
+                  {item.title}
                 </h3>
-                <p className="text-rich-black/70">{offering.description}</p>
+                <div className="w-8 h-px bg-[#9DBBAE] mb-6 group-hover:w-16 transition-all duration-500" />
+                <p className="text-[#f4f4f4]/50 text-lg leading-relaxed">
+                  {item.text}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-20 bg-light-gray">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-rich-black mb-4">
-              What People Say
-            </h2>
-            <p className="text-lg text-rich-black/70">Voices from our community</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div
-                key={index}
-                className={`bg-white rounded-lg p-8 shadow-sm border-l-4 border-sage animate-fade-in delay-${(index + 1) * 100}`}
-              >
-                <p className="text-rich-black/80 mb-4 italic">"{testimonial.text}"</p>
-                <p className="text-rich-black font-semibold">— {testimonial.author}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Banner */}
-      <section className="py-20 bg-sage text-white">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Ready to Begin Your Practice?
-          </h2>
-          <p className="text-xl mb-8">
-            Join us for a class, experience a sound bath, or create your personalized practice.
+      {/* Pull quote */}
+      <section className="py-24 px-6 lg:px-12 border-t border-[#f4f4f4]/5">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="font-display text-2xl md:text-4xl font-light leading-relaxed text-[#f4f4f4]/80 italic">
+            The body is your temple. Keep it pure and clean for the soul to reside in.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="w-8 h-px bg-[#9DBBAE] mx-auto mt-8" />
+        </div>
+      </section>
+
+      {/* CTA - minimal */}
+      <section className="py-32 px-6 lg:px-12 border-t border-[#f4f4f4]/5">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="font-display text-4xl md:text-5xl font-light tracking-editorial mb-8 text-[#f4f4f4]">
+            Begin
+          </h2>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Link
               href="/schedule"
-              className="bg-white hover:bg-light-gray text-sage font-semibold px-8 py-3 rounded-lg transition-all duration-200 transform hover:scale-105"
+              className="border border-[#f4f4f4]/20 hover:border-[#9DBBAE] text-[#f4f4f4]/80 hover:text-[#f4f4f4] text-sm tracking-wide-editorial uppercase px-10 py-4 transition-all duration-500"
             >
               View Schedule
             </Link>
             <Link
               href="/contact"
-              className="bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white font-semibold px-8 py-3 rounded-lg transition-all duration-200 border-2 border-white/50"
+              className="border border-[#f4f4f4]/20 hover:border-[#9DBBAE] text-[#f4f4f4]/80 hover:text-[#f4f4f4] text-sm tracking-wide-editorial uppercase px-10 py-4 transition-all duration-500"
             >
-              Get In Touch
+              Get in Touch
             </Link>
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="border-t border-[#f4f4f4]/5 py-12 px-6 lg:px-12">
+        <div className="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+          <span className="font-display text-lg tracking-editorial text-[#f4f4f4]/40">
+            LMNO
+          </span>
+          <div className="flex items-center gap-8">
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#f4f4f4]/30 hover:text-[#9DBBAE] transition-colors duration-300 text-sm tracking-wide-editorial uppercase"
+            >
+              Instagram
+            </a>
+            <a
+              href="mailto:hello@lmnoyoga.com"
+              className="text-[#f4f4f4]/30 hover:text-[#9DBBAE] transition-colors duration-300 text-sm tracking-wide-editorial uppercase"
+            >
+              Email
+            </a>
+          </div>
+          <span className="text-[#f4f4f4]/20 text-xs tracking-wide">
+            {new Date().getFullYear()}
+          </span>
+        </div>
+      </footer>
     </>
   );
 }

@@ -2,15 +2,17 @@
 
 import { useState } from 'react';
 
-type Practice = {
+interface Pose {
+  name: string;
+  duration: string;
+  description: string;
+}
+
+interface Practice {
   title: string;
   duration: string;
-  poses: Array<{
-    name: string;
-    duration: string;
-    description: string;
-  }>;
-};
+  poses: Pose[];
+}
 
 export default function PracticeBuilder() {
   const [goal, setGoal] = useState('');
@@ -18,227 +20,143 @@ export default function PracticeBuilder() {
   const [duration, setDuration] = useState('');
   const [practice, setPractice] = useState<Practice | null>(null);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
 
-  const goals = [
-    { value: 'flexibility', label: 'Flexibility', icon: '🤸' },
-    { value: 'strength', label: 'Strength', icon: '💪' },
-    { value: 'stress-relief', label: 'Stress Relief', icon: '🧘' },
-    { value: 'energy', label: 'Energy Boost', icon: '⚡' },
-    { value: 'meditation', label: 'Meditation & Calm', icon: '🕉️' },
-  ];
+  const goals = ['Flexibility', 'Strength', 'Stress Relief', 'Energy', 'Meditation'];
+  const levels = ['Beginner', 'Intermediate', 'Advanced'];
+  const durations = ['15', '30', '45', '60'];
 
-  const levels = [
-    { value: 'beginner', label: 'Beginner' },
-    { value: 'intermediate', label: 'Intermediate' },
-    { value: 'advanced', label: 'Advanced' },
-  ];
-
-  const durations = [
-    { value: '15', label: '15 minutes' },
-    { value: '30', label: '30 minutes' },
-    { value: '45', label: '45 minutes' },
-    { value: '60', label: '60 minutes' },
-  ];
-
-  const generatePractice = async () => {
-    if (!goal || !level || !duration) {
-      setError('Please select all options');
-      return;
-    }
-
+  const handleGenerate = async () => {
+    if (!goal || !level || !duration) return;
     setLoading(true);
-    setError('');
     setPractice(null);
 
     try {
-      const response = await fetch('/api/practice-builder', {
+      const res = await fetch('/api/practice-builder', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ goal, level, duration }),
       });
-
-      if (!response.ok) {
-        throw new Error('Failed to generate practice');
-      }
-
-      const data = await response.json();
+      const data = await res.json();
       setPractice(data.practice);
-    } catch (err) {
-      setError('Failed to generate practice. Please try again.');
-      console.error(err);
+    } catch {
+      // silently fail
     } finally {
       setLoading(false);
     }
   };
 
+  const OptionGroup = ({
+    label,
+    options,
+    value,
+    onChange,
+  }: {
+    label: string;
+    options: string[];
+    value: string;
+    onChange: (v: string) => void;
+  }) => (
+    <div>
+      <span className="block text-sm tracking-wide-editorial uppercase text-[#f4f4f4]/30 mb-4">
+        {label}
+      </span>
+      <div className="flex flex-wrap gap-3">
+        {options.map((opt) => (
+          <button
+            key={opt}
+            onClick={() => onChange(opt)}
+            className={`border text-sm tracking-wide-editorial uppercase px-6 py-3 transition-all duration-500 ${
+              value === opt
+                ? 'border-[#9DBBAE] text-[#f4f4f4]'
+                : 'border-[#f4f4f4]/10 text-[#f4f4f4]/40 hover:border-[#f4f4f4]/30 hover:text-[#f4f4f4]/60'
+            }`}
+          >
+            {opt === '15' || opt === '30' || opt === '45' || opt === '60'
+              ? `${opt} min`
+              : opt}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+
   return (
-    <>
-      {/* Hero Section */}
-      <section className="relative h-[300px] flex items-center justify-center text-white bg-sage">
-        <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4">
-            AI Practice Builder
-          </h1>
-          <p className="text-xl md:text-2xl">
-            Create your personalized yoga sequence
-          </p>
+    <div className="page-content pt-32 pb-24 px-6 lg:px-12 min-h-screen">
+      <div className="max-w-3xl mx-auto">
+        <h1 className="font-display text-5xl md:text-7xl font-light tracking-editorial mb-4">
+          Practice
+        </h1>
+        <p className="text-[#f4f4f4]/40 text-lg mb-4">
+          Build a sequence tailored to you.
+        </p>
+        <div className="w-12 h-px bg-[#9DBBAE] mb-16" />
+
+        <div className="space-y-12">
+          <OptionGroup
+            label="Intention"
+            options={goals}
+            value={goal}
+            onChange={setGoal}
+          />
+          <OptionGroup
+            label="Level"
+            options={levels}
+            value={level}
+            onChange={setLevel}
+          />
+          <OptionGroup
+            label="Duration"
+            options={durations}
+            value={duration}
+            onChange={setDuration}
+          />
+
+          <button
+            onClick={handleGenerate}
+            disabled={!goal || !level || !duration || loading}
+            className={`border text-sm tracking-wide-editorial uppercase px-10 py-4 transition-all duration-500 ${
+              goal && level && duration && !loading
+                ? 'border-[#9DBBAE] text-[#f4f4f4] hover:bg-[#9DBBAE]/10'
+                : 'border-[#f4f4f4]/5 text-[#f4f4f4]/20 cursor-not-allowed'
+            }`}
+          >
+            {loading ? 'Generating...' : 'Generate Practice'}
+          </button>
         </div>
-      </section>
 
-      {/* Builder Form */}
-      <section className="py-20 bg-background">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          {!practice ? (
-            <div className="bg-white rounded-lg shadow-lg p-8 md:p-12">
-              <h2 className="text-3xl font-bold text-rich-black mb-8 text-center">
-                Build Your Practice
-              </h2>
+        {/* Result */}
+        {practice && (
+          <div className="mt-20 border-t border-[#f4f4f4]/5 pt-16">
+            <h2 className="font-display text-3xl md:text-4xl font-light tracking-editorial mb-2 text-[#f4f4f4]">
+              {practice.title}
+            </h2>
+            <p className="text-sm tracking-wide-editorial uppercase text-[#f4f4f4]/30 mb-12">
+              {practice.duration}
+            </p>
 
-              {/* Goal Selection */}
-              <div className="mb-8">
-                <label className="block text-lg font-semibold text-rich-black mb-4">
-                  What's your goal today?
-                </label>
-                <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-                  {goals.map((g) => (
-                    <button
-                      key={g.value}
-                      onClick={() => setGoal(g.value)}
-                      className={`p-4 rounded-lg border-2 transition-all duration-200 ${
-                        goal === g.value
-                          ? 'border-sage bg-pale-blue shadow-md'
-                          : 'border-silver hover:border-sage'
-                      }`}
-                    >
-                      <div className="text-3xl mb-2">{g.icon}</div>
-                      <div className="text-sm font-medium text-rich-black">
-                        {g.label}
-                      </div>
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Level Selection */}
-              <div className="mb-8">
-                <label className="block text-lg font-semibold text-rich-black mb-4">
-                  What's your level?
-                </label>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  {levels.map((l) => (
-                    <button
-                      key={l.value}
-                      onClick={() => setLevel(l.value)}
-                      className={`p-4 rounded-lg border-2 transition-all duration-200 ${
-                        level === l.value
-                          ? 'border-sage bg-pale-blue shadow-md'
-                          : 'border-silver hover:border-sage'
-                      }`}
-                    >
-                      <div className="text-base font-medium text-rich-black">
-                        {l.label}
-                      </div>
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Duration Selection */}
-              <div className="mb-8">
-                <label className="block text-lg font-semibold text-rich-black mb-4">
-                  How much time do you have?
-                </label>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  {durations.map((d) => (
-                    <button
-                      key={d.value}
-                      onClick={() => setDuration(d.value)}
-                      className={`p-4 rounded-lg border-2 transition-all duration-200 ${
-                        duration === d.value
-                          ? 'border-sage bg-pale-blue shadow-md'
-                          : 'border-silver hover:border-sage'
-                      }`}
-                    >
-                      <div className="text-base font-medium text-rich-black">
-                        {d.label}
-                      </div>
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {error && (
-                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
-                  {error}
-                </div>
-              )}
-
-              {/* Generate Button */}
-              <button
-                onClick={generatePractice}
-                disabled={loading || !goal || !level || !duration}
-                className={`w-full py-4 rounded-lg font-semibold text-lg transition-all duration-200 ${
-                  loading || !goal || !level || !duration
-                    ? 'bg-silver text-rich-black/50 cursor-not-allowed'
-                    : 'bg-sage hover:bg-sage-700 text-white transform hover:scale-105'
-                }`}
-              >
-                {loading ? 'Generating Your Practice...' : 'Generate Practice'}
-              </button>
-            </div>
-          ) : (
-            <div className="space-y-6">
-              {/* Practice Header */}
-              <div className="bg-white rounded-lg shadow-lg p-8">
-                <h2 className="text-3xl font-bold text-rich-black mb-2">
-                  {practice.title}
-                </h2>
-                <p className="text-lg text-rich-black/70">
-                  Duration: {practice.duration}
-                </p>
-              </div>
-
-              {/* Pose Sequence */}
-              {practice.poses.map((pose, index) => (
+            <div className="space-y-0">
+              {practice.poses?.map((pose, i) => (
                 <div
-                  key={index}
-                  className="bg-white rounded-lg shadow-md p-6 animate-fade-in"
-                  style={{ animationDelay: `${index * 100}ms` }}
+                  key={i}
+                  className="py-6 border-b border-[#f4f4f4]/5 last:border-b-0"
                 >
-                  <div className="flex items-start justify-between mb-3">
-                    <h3 className="text-xl font-bold text-rich-black">
-                      {index + 1}. {pose.name}
-                    </h3>
-                    <span className="bg-sage/10 text-sage px-3 py-1 rounded-full text-sm font-medium border border-sage">
+                  <div className="flex items-baseline justify-between gap-4 mb-2">
+                    <span className="font-display text-xl text-[#f4f4f4]/80">
+                      {pose.name}
+                    </span>
+                    <span className="text-sm text-[#9DBBAE] tracking-wide shrink-0">
                       {pose.duration}
                     </span>
                   </div>
-                  <p className="text-rich-black/80">{pose.description}</p>
+                  <p className="text-[#f4f4f4]/40 text-base leading-relaxed">
+                    {pose.description}
+                  </p>
                 </div>
               ))}
-
-              {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button
-                  onClick={() => setPractice(null)}
-                  className="flex-1 bg-sage hover:bg-sage-700 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200"
-                >
-                  Create Another Practice
-                </button>
-                <button
-                  onClick={() => window.print()}
-                  className="flex-1 bg-white hover:bg-pale-blue text-rich-black font-semibold px-6 py-3 rounded-lg border-2 border-silver transition-all duration-200"
-                >
-                  Print Practice
-                </button>
-              </div>
             </div>
-          )}
-        </div>
-      </section>
-    </>
+          </div>
+        )}
+      </div>
+    </div>
   );
 }
