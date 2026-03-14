@@ -66,6 +66,8 @@ export default function Offerings() {
               <p className="text-[#f4f4f4]/30 text-base mb-12 max-w-lg mx-auto leading-relaxed">
                 Kriya Yoga, Sound Bath + Yoga Nidra, Gentle Yoga, and Private Events.
                 Register through Heart Space to reserve your spot.
+                Check the schedule for donation-based sound baths that raise funds
+                for community organizations.
               </p>
               <a
                 href="https://www.heartspacetherapy.org/sound-bathing-with-liane-1"
@@ -144,7 +146,7 @@ export default function Offerings() {
             </div>
 
             <p className="text-[#f4f4f4]/30 text-lg leading-relaxed mb-10 text-center">
-              Practice extends beyond the mat.
+              Practice extends beyond the mat. Please consider a donation to these organizations.
             </p>
 
             <div className="space-y-6">

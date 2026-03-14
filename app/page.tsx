@@ -34,7 +34,7 @@ export default function Home() {
             </h1>
             <div className="flex items-center justify-center gap-6 mt-6 animate-fade-in opacity-0 delay-800">
               <div className="h-px w-12 bg-[#9DBBAE]/40" />
-              <span className="text-xs tracking-[0.5em] uppercase text-[#f4f4f4]/40 font-display">
+              <span className="text-xs tracking-[0.5em] uppercase text-[#f4f4f4]/70 font-display">
                 Yoga and Sound
               </span>
               <div className="h-px w-12 bg-[#9DBBAE]/40" />
@@ -89,7 +89,7 @@ export default function Home() {
                   Sound Baths
                 </h3>
                 <p className="text-[#f4f4f4]/40 text-lg leading-relaxed max-w-sm">
-                  Crystal bowls, gongs, and overtone chimes. Deep restoration through resonance.
+                  Crystal bowls and other intentionally selected instruments. Deep restoration through resonance.
                 </p>
               </Link>
             </ScrollReveal>
