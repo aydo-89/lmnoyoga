@@ -89,6 +89,12 @@ export default function Home() {
           <ScrollReveal variant="stagger">
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link
+                href="/about"
+                className="hover-reveal-line border border-[#f4f4f4]/10 hover:border-[#9DBBAE]/40 text-[#f4f4f4]/60 hover:text-[#f4f4f4] text-sm tracking-[0.3em] uppercase px-12 py-5 transition-all duration-700"
+              >
+                About
+              </Link>
+              <Link
                 href="/offerings"
                 className="hover-reveal-line border border-[#f4f4f4]/10 hover:border-[#9DBBAE]/40 text-[#f4f4f4]/60 hover:text-[#f4f4f4] text-sm tracking-[0.3em] uppercase px-12 py-5 transition-all duration-700"
               >
@@ -98,7 +104,7 @@ export default function Home() {
                 href="/contact"
                 className="hover-reveal-line border border-[#f4f4f4]/10 hover:border-[#9DBBAE]/40 text-[#f4f4f4]/60 hover:text-[#f4f4f4] text-sm tracking-[0.3em] uppercase px-12 py-5 transition-all duration-700"
               >
-                Get in Touch
+                Contact
               </Link>
             </div>
           </ScrollReveal>
