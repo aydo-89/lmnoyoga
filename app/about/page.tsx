@@ -12,7 +12,7 @@ export default function About() {
       {/* Hero */}
       <section className="pt-40 pb-20 px-6 lg:px-12">
         <div className="max-w-4xl mx-auto">
-          <h1 className="font-display display-massive font-light text-[#f4f4f4]/90 animate-fade-in opacity-0">
+          <h1 className="font-display text-4xl md:text-5xl font-light tracking-editorial text-[#f4f4f4]/90 animate-fade-in opacity-0">
             Liane Olson
           </h1>
         </div>

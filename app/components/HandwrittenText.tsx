@@ -61,7 +61,7 @@ export default function HandwrittenText({ text, className = '' }: HandwrittenTex
         className="text-center leading-[1.4]"
         style={{
           fontFamily: "var(--font-cormorant), 'Cormorant Garamond', serif",
-          fontSize: 'clamp(1.6rem, 3.5vw, 3rem)',
+          fontSize: 'clamp(1.1rem, 2vw, 1.8rem)',
           fontWeight: 300,
           letterSpacing: '0.04em',
           fontStyle: 'normal',
