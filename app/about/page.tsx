@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ScrollReveal from '../components/ScrollReveal';
+import NameToLMNO from '../components/NameToLMNO';
 
 export const metadata: Metadata = {
   title: 'About',
@@ -12,18 +13,7 @@ export default function About() {
       {/* Hero */}
       <section className="pt-40 pb-16 px-6 lg:px-12">
         <div className="max-w-4xl mx-auto">
-          <h1 className="font-display text-4xl md:text-5xl font-light tracking-editorial text-[#f4f4f4]/90 animate-fade-in opacity-0">
-            Liane Olson
-          </h1>
-          <p className="mt-5 font-display text-base md:text-lg tracking-[0.3em] text-[#f4f4f4]/30 animate-fade-in opacity-0 delay-800">
-            <span className="text-[#f4f4f4]/20">L</span>
-            <span className="text-[#f4f4f4]/10">iane</span>
-            <span className="text-[#f4f4f4]/10 mx-1">·</span>
-            <span className="text-[#9DBBAE]/50 font-medium">Minnesota</span>
-            <span className="text-[#f4f4f4]/10 mx-1">·</span>
-            <span className="text-[#f4f4f4]/20">O</span>
-            <span className="text-[#f4f4f4]/10">lson</span>
-          </p>
+          <NameToLMNO />
         </div>
       </section>
 
