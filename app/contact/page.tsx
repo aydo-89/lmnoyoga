@@ -1,89 +1,108 @@
 'use client';
 
 import { useState } from 'react';
-import type { Metadata } from 'next';
+import ScrollReveal from '../components/ScrollReveal';
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [sent, setSent] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Connect to email service
-    alert('Message sent. We will be in touch.');
+    setSent(true);
     setFormData({ name: '', email: '', message: '' });
   };
 
   return (
-    <div className="page-content pt-32 pb-24 px-6 lg:px-12 min-h-screen">
-      <div className="max-w-2xl mx-auto">
-        <h1 className="font-display text-5xl md:text-7xl font-light tracking-editorial mb-4">
-          Contact
-        </h1>
-        <div className="w-12 h-px bg-[#9DBBAE] mb-16" />
-
-        <form onSubmit={handleSubmit} className="space-y-10">
-          <div>
-            <label className="block text-sm tracking-wide-editorial uppercase text-[#f4f4f4]/30 mb-3">
-              Name
-            </label>
-            <input
-              type="text"
-              required
-              value={formData.name}
-              onChange={(e) =>
-                setFormData({ ...formData, name: e.target.value })
-              }
-              className="w-full bg-transparent border-b border-[#f4f4f4]/10 focus:border-[#9DBBAE] text-[#f4f4f4] font-display text-xl py-3 outline-none transition-colors duration-500"
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm tracking-wide-editorial uppercase text-[#f4f4f4]/30 mb-3">
-              Email
-            </label>
-            <input
-              type="email"
-              required
-              value={formData.email}
-              onChange={(e) =>
-                setFormData({ ...formData, email: e.target.value })
-              }
-              className="w-full bg-transparent border-b border-[#f4f4f4]/10 focus:border-[#9DBBAE] text-[#f4f4f4] font-display text-xl py-3 outline-none transition-colors duration-500"
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm tracking-wide-editorial uppercase text-[#f4f4f4]/30 mb-3">
-              Message
-            </label>
-            <textarea
-              required
-              rows={5}
-              value={formData.message}
-              onChange={(e) =>
-                setFormData({ ...formData, message: e.target.value })
-              }
-              className="w-full bg-transparent border-b border-[#f4f4f4]/10 focus:border-[#9DBBAE] text-[#f4f4f4] font-display text-xl py-3 outline-none transition-colors duration-500 resize-none"
-            />
-          </div>
-
-          <button
-            type="submit"
-            className="border border-[#f4f4f4]/20 hover:border-[#9DBBAE] text-[#f4f4f4]/80 hover:text-[#f4f4f4] text-sm tracking-wide-editorial uppercase px-10 py-4 transition-all duration-500"
-          >
-            Send
-          </button>
-        </form>
-
-        <div className="mt-24 border-t border-[#f4f4f4]/5 pt-16 space-y-6 text-[#f4f4f4]/40 text-lg">
-          <p>hello@lmnoyoga.com</p>
-          <p>Minneapolis-St. Paul, Minnesota</p>
+    <div className="min-h-screen">
+      {/* Hero */}
+      <section className="pt-40 pb-20 px-6 lg:px-12">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="font-display display-massive font-light text-[#f4f4f4]/90 animate-fade-in opacity-0">
+            Contact
+          </h1>
         </div>
-      </div>
+      </section>
+
+      <div className="section-divider" />
+
+      <section className="py-24 px-6 lg:px-12">
+        <div className="max-w-2xl mx-auto">
+          {sent ? (
+            <ScrollReveal>
+              <div className="text-center py-20">
+                <p className="font-display text-3xl font-light text-[#f4f4f4]/60">
+                  Message received. We will be in touch.
+                </p>
+                <div className="ornament-line w-16 mx-auto mt-8" />
+              </div>
+            </ScrollReveal>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-12">
+              <ScrollReveal>
+                <div>
+                  <label className="block text-xs tracking-[0.5em] uppercase text-[#f4f4f4]/20 mb-4 font-display">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="w-full bg-transparent border-b border-[#f4f4f4]/[0.06] focus:border-[#9DBBAE]/40 text-[#f4f4f4]/80 font-display text-2xl py-4 outline-none transition-colors duration-700"
+                  />
+                </div>
+              </ScrollReveal>
+
+              <ScrollReveal>
+                <div>
+                  <label className="block text-xs tracking-[0.5em] uppercase text-[#f4f4f4]/20 mb-4 font-display">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="w-full bg-transparent border-b border-[#f4f4f4]/[0.06] focus:border-[#9DBBAE]/40 text-[#f4f4f4]/80 font-display text-2xl py-4 outline-none transition-colors duration-700"
+                  />
+                </div>
+              </ScrollReveal>
+
+              <ScrollReveal>
+                <div>
+                  <label className="block text-xs tracking-[0.5em] uppercase text-[#f4f4f4]/20 mb-4 font-display">
+                    Message
+                  </label>
+                  <textarea
+                    required
+                    rows={4}
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    className="w-full bg-transparent border-b border-[#f4f4f4]/[0.06] focus:border-[#9DBBAE]/40 text-[#f4f4f4]/80 font-display text-2xl py-4 outline-none transition-colors duration-700 resize-none"
+                  />
+                </div>
+              </ScrollReveal>
+
+              <ScrollReveal>
+                <button
+                  type="submit"
+                  className="hover-reveal-line border border-[#f4f4f4]/10 hover:border-[#9DBBAE]/40 text-[#f4f4f4]/60 hover:text-[#f4f4f4] text-sm tracking-[0.3em] uppercase px-12 py-5 transition-all duration-700"
+                >
+                  Send
+                </button>
+              </ScrollReveal>
+            </form>
+          )}
+
+          <ScrollReveal>
+            <div className="mt-32 border-t border-[#f4f4f4]/[0.04] pt-16 space-y-4">
+              <p className="text-[#f4f4f4]/25 font-display text-lg">hello@lmnoyoga.com</p>
+              <p className="text-[#f4f4f4]/15 font-display text-lg">Minneapolis-St. Paul, Minnesota</p>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
     </div>
   );
 }
