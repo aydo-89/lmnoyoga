@@ -5,6 +5,11 @@ import ScrollReveal from '../components/ScrollReveal';
 
 const communityLinks = [
   {
+    name: 'Community Aid Network MN',
+    url: 'https://www.canmn.org/',
+    description: 'Grassroots mutual aid in Minneapolis',
+  },
+  {
     name: 'Immigration Law Center',
     url: 'https://www.ilcm.org/',
     description: 'Immigration support and legal services',
@@ -18,11 +23,6 @@ const communityLinks = [
     name: 'World Central Kitchen',
     url: 'https://wck.org/',
     description: 'Nourishing communities through food',
-  },
-  {
-    name: 'Community Aid Network MN',
-    url: 'https://www.canmn.org/',
-    description: 'Grassroots mutual aid in Minneapolis',
   },
 ];
 
@@ -151,7 +151,7 @@ export default function Offerings() {
             </div>
 
             <p className="text-[#f4f4f4]/30 text-lg leading-relaxed mb-10 text-center">
-              Practice extends beyond the mat. Please consider a donation to these organizations.
+              Consider supporting these organizations doing meaningful work.
             </p>
 
             <div className="space-y-6">

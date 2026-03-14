@@ -229,3 +229,31 @@ html {
   line-height: 0.9;
   letter-spacing: 0.05em;
 }
+
+/* ===== HANDWRITTEN TEXT DRAW-ON ===== */
+.handwritten-text {
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+  fill: transparent;
+  transition: fill 1.5s ease 2.5s;
+}
+
+.handwritten-text.animate {
+  animation: draw-text 3s ease forwards;
+  fill: rgba(244, 244, 244, 0.55);
+}
+
+@keyframes draw-text {
+  0% {
+    stroke-dashoffset: 2000;
+    fill: transparent;
+  }
+  70% {
+    stroke-dashoffset: 0;
+    fill: transparent;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    fill: rgba(244, 244, 244, 0.55);
+  }
+}
