@@ -88,7 +88,7 @@ export default function HandwrittenText({ text, className = '' }: HandwrittenTex
                 width: char === ' ' ? '0.3em' : undefined,
               }}
             >
-              {char === ' ' ? '\u00A0' : char}
+              {char === ' ' ? '\u00A0' : isInitial ? char.toUpperCase() : char}
             </span>
           );
         })}

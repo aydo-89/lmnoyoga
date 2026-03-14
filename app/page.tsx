@@ -55,7 +55,7 @@ export default function Home() {
       <section className="py-32 px-6 lg:px-12">
         <div className="max-w-5xl mx-auto text-center">
           <HandwrittenText
-            text="Let movement nurture openings"
+            text="let movement nurture openings"
             className="px-4"
           />
           <ScrollReveal>
