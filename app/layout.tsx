@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Cormorant_Garamond, Dancing_Script } from 'next/font/google';
+import { Cormorant_Garamond, Alex_Brush } from 'next/font/google';
 import './globals.css';
 import Navigation from './components/Navigation';
 import CursorGlow from './components/CursorGlow';
@@ -11,10 +11,10 @@ const cormorant = Cormorant_Garamond({
   display: 'swap',
 });
 
-const dancingScript = Dancing_Script({
+const alexBrush = Alex_Brush({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-dancing',
+  weight: ['400'],
+  variable: '--font-cursive',
   display: 'swap',
 });
 
@@ -48,7 +48,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${dancingScript.variable}`}>
+    <html lang="en" className={`${cormorant.variable} ${alexBrush.variable}`}>
       <body className="antialiased bg-[#0a0a0a] text-[#f4f4f4]">
         <CursorGlow />
         <Navigation />

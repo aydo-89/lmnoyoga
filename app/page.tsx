@@ -102,7 +102,7 @@ export default function Home() {
                   Community
                 </h3>
                 <p className="text-[#f4f4f4]/40 text-lg leading-relaxed max-w-sm">
-                  Consider supporting these organizations doing meaningful work.
+                  Consider supporting these organizations.
                 </p>
               </Link>
             </ScrollReveal>
@@ -115,7 +115,7 @@ export default function Home() {
                   Contact
                 </h3>
                 <p className="text-[#f4f4f4]/40 text-lg leading-relaxed max-w-sm">
-                  Reach out!
+                  Reach out! We'd love to hear from you.
                 </p>
               </Link>
             </ScrollReveal>
