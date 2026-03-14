@@ -230,13 +230,5 @@ html {
   letter-spacing: 0.05em;
 }
 
-/* ===== HANDWRITTEN TEXT DRAW-ON ===== */
-.handwritten-text {
-  fill: transparent;
-  transition: stroke-dashoffset 3.5s cubic-bezier(0.25, 0.1, 0.25, 1),
-              fill 1.8s ease 3s;
-}
-
-.handwritten-text.animate {
-  fill: rgba(244, 244, 244, 0.45);
-}
+/* ===== HANDWRITTEN TEXT ===== */
+/* Character-by-character animation handled in React component */

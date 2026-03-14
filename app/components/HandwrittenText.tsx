@@ -9,10 +9,10 @@ interface HandwrittenTextProps {
 
 export default function HandwrittenText({ text, className = '' }: HandwrittenTextProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const textRef = useRef<SVGTextElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-  const [pathLength, setPathLength] = useState(3000);
+  const [visibleCount, setVisibleCount] = useState(0);
+  const [started, setStarted] = useState(false);
 
+  // Trigger on scroll into view
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
@@ -20,51 +20,71 @@ export default function HandwrittenText({ text, className = '' }: HandwrittenTex
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true);
+          setStarted(true);
           observer.disconnect();
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.4 }
     );
 
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
 
+  // Animate characters one by one
   useEffect(() => {
-    if (textRef.current) {
-      const len = textRef.current.getComputedTextLength?.();
-      if (len) setPathLength(Math.ceil(len * 1.5));
-    }
-  }, []);
+    if (!started) return;
+
+    const chars = text.length;
+    const baseDelay = 80; // ms per character
+    let frame: number;
+    let current = 0;
+
+    const tick = () => {
+      current++;
+      setVisibleCount(current);
+      if (current < chars) {
+        // Slight variance — slower on spaces (like lifting a pen)
+        const nextChar = text[current];
+        const delay = nextChar === ' ' ? baseDelay * 2.5 : baseDelay;
+        frame = window.setTimeout(tick, delay);
+      }
+    };
+
+    frame = window.setTimeout(tick, 400); // initial pause before writing starts
+    return () => clearTimeout(frame);
+  }, [started, text]);
 
   return (
     <div ref={ref} className={className}>
-      <svg
-        viewBox="0 0 900 140"
-        className="w-full max-w-4xl mx-auto overflow-visible"
-        preserveAspectRatio="xMidYMid meet"
+      <p
+        className="text-center leading-[1.4]"
+        style={{
+          fontFamily: "var(--font-cursive), 'Italianno', cursive",
+          fontSize: 'clamp(2.5rem, 6vw, 5rem)',
+          fontWeight: 400,
+          letterSpacing: '0.02em',
+        }}
+        aria-label={text}
       >
-        <text
-          ref={textRef}
-          x="450"
-          y="95"
-          textAnchor="middle"
-          className={`handwritten-text ${isVisible ? 'animate' : ''}`}
-          fill="none"
-          stroke="rgba(244, 244, 244, 0.5)"
-          strokeWidth="0.8"
-          style={{
-            fontFamily: "var(--font-cursive), 'Alex Brush', cursive",
-            fontSize: '72px',
-            fontWeight: 400,
-            strokeDasharray: pathLength,
-            strokeDashoffset: isVisible ? 0 : pathLength,
-          }}
-        >
-          {text}
-        </text>
-      </svg>
+        {text.split('').map((char, i) => (
+          <span
+            key={i}
+            className="inline-block transition-all"
+            style={{
+              opacity: i < visibleCount ? 1 : 0,
+              transform: i < visibleCount ? 'translateY(0)' : 'translateY(8px)',
+              color: 'rgba(244, 244, 244, 0.50)',
+              transitionDuration: '600ms',
+              transitionTimingFunction: 'cubic-bezier(0.23, 1, 0.32, 1)',
+              // Preserve spaces
+              width: char === ' ' ? '0.3em' : undefined,
+            }}
+          >
+            {char === ' ' ? '\u00A0' : char}
+          </span>
+        ))}
+      </p>
     </div>
   );
 }

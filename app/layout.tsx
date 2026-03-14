@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Cormorant_Garamond, Alex_Brush } from 'next/font/google';
+import { Cormorant_Garamond, Italianno } from 'next/font/google';
 import './globals.css';
 import Navigation from './components/Navigation';
 import CursorGlow from './components/CursorGlow';
@@ -11,7 +11,7 @@ const cormorant = Cormorant_Garamond({
   display: 'swap',
 });
 
-const alexBrush = Alex_Brush({
+const italianno = Italianno({
   subsets: ['latin'],
   weight: ['400'],
   variable: '--font-cursive',
@@ -48,7 +48,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${alexBrush.variable}`}>
+    <html lang="en" className={`${cormorant.variable} ${italianno.variable}`}>
       <body className="antialiased bg-[#0a0a0a] text-[#f4f4f4]">
         <CursorGlow />
         <Navigation />
