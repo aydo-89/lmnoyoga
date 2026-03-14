@@ -55,7 +55,7 @@ export default function Offerings() {
           <ScrollReveal>
             <div className="flex items-center gap-6 mb-16">
               <div className="h-px flex-1 bg-[#f4f4f4]/5" />
-              <span className="text-xs tracking-[0.5em] uppercase text-[#f4f4f4]/20 font-display">
+              <span className="text-sm tracking-[0.5em] uppercase text-[#f4f4f4]/35 font-display">
                 In Person
               </span>
               <div className="h-px flex-1 bg-[#f4f4f4]/5" />
@@ -95,7 +95,7 @@ export default function Offerings() {
           <ScrollReveal>
             <div className="flex items-center gap-6 mb-16">
               <div className="h-px flex-1 bg-[#f4f4f4]/5" />
-              <span className="text-xs tracking-[0.5em] uppercase text-[#f4f4f4]/20 font-display">
+              <span className="text-sm tracking-[0.5em] uppercase text-[#f4f4f4]/35 font-display">
                 Virtual
               </span>
               <div className="h-px flex-1 bg-[#f4f4f4]/5" />

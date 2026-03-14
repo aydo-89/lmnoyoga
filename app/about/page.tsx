@@ -70,7 +70,7 @@ export default function About() {
           <ScrollReveal>
             <div className="mt-16 pt-12 border-t border-[#f4f4f4]/[0.04]">
               <p className="text-[#f4f4f4]/30 text-base leading-relaxed">
-                Liane facilitates Sound Baths, Kriya Yoga, and Yoga Nidra.
+                Liane facilitates Sound Baths, Kriya Yoga + Yoga Nidra.
               </p>
             </div>
           </ScrollReveal>
