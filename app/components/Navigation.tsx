@@ -2,10 +2,13 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -14,26 +17,31 @@ export default function Navigation() {
   }, []);
 
   const navLinks = [
-    { href: '/about', label: 'About' },
-    { href: '/classes', label: 'Classes' },
-    { href: '/practice-builder', label: 'Practice' },
+    { href: '/offerings', label: 'Offerings' },
     { href: '/schedule', label: 'Schedule' },
     { href: '/contact', label: 'Contact' },
   ];
 
+  // On homepage: logo is very dark/subtle. On inner pages: brighter.
+  const logoOpacity = isHome
+    ? scrolled
+      ? 'text-[#f4f4f4]/30'
+      : 'text-[#f4f4f4]/10'
+    : 'text-[#f4f4f4]/60';
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? 'bg-[#0a0a0a]/90 backdrop-blur-md'
-          : 'bg-transparent'
+        scrolled ? 'bg-[#0a0a0a]/90 backdrop-blur-md' : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex justify-between items-center h-20">
-          {/* Logo */}
+          {/* Logo — subtle on homepage, visible on inner pages */}
           <Link href="/" className="relative z-10">
-            <span className="font-display text-2xl font-semibold tracking-editorial text-[#f4f4f4]">
+            <span
+              className={`font-display text-2xl font-semibold tracking-editorial transition-colors duration-700 ${logoOpacity}`}
+            >
               LMNO
             </span>
           </Link>
@@ -78,7 +86,7 @@ export default function Navigation() {
         </div>
       </div>
 
-      {/* Mobile menu - full screen overlay */}
+      {/* Mobile menu — full screen */}
       <div
         className={`md:hidden fixed inset-0 bg-[#0a0a0a] transition-all duration-500 flex items-center justify-center ${
           isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
