@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import ScrollReveal from './components/ScrollReveal';
-import HandwrittenText from './components/HandwrittenText';
+
 
 export const metadata: Metadata = {
   title: 'LMNO',
@@ -48,19 +48,6 @@ export default function Home() {
             Scroll
           </span>
           <div className="w-px h-8 bg-gradient-to-b from-[#f4f4f4]/20 to-transparent" />
-        </div>
-      </section>
-
-      {/* ===== QUOTE — Let movement nurture openings (handwritten draw-on) ===== */}
-      <section className="py-32 px-6 lg:px-12">
-        <div className="max-w-5xl mx-auto text-center">
-          <HandwrittenText
-            text="let movement nurture openings"
-            className="px-4"
-          />
-          <ScrollReveal>
-            <div className="ornament-line w-24 mx-auto mt-12" />
-          </ScrollReveal>
         </div>
       </section>
 

@@ -3,14 +3,14 @@ import ScrollReveal from '../components/ScrollReveal';
 
 export const metadata: Metadata = {
   title: 'About',
-  description: 'Meet Liane of LMNO Yoga.',
+  description: 'Meet Liane Olson — yoga practitioner, sound healing facilitator, and founder of LMNO.',
 };
 
 export default function About() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="pt-40 pb-20 px-6 lg:px-12">
+      <section className="pt-40 pb-16 px-6 lg:px-12">
         <div className="max-w-4xl mx-auto">
           <h1 className="font-display text-4xl md:text-5xl font-light tracking-editorial text-[#f4f4f4]/90 animate-fade-in opacity-0">
             Liane Olson
@@ -20,42 +20,50 @@ export default function About() {
 
       <div className="section-divider" />
 
-      <section className="py-32 px-6 lg:px-12">
+      <section className="py-24 px-6 lg:px-12">
         <div className="max-w-3xl mx-auto">
           <ScrollReveal variant="slow">
-            <div className="space-y-8 text-[#f4f4f4]/50 text-lg leading-[1.9]">
-              <p className="font-display text-2xl md:text-3xl font-light leading-[1.6] text-[#f4f4f4]/60">
-                Twenty years on the mat. It started as survival.
+            <div className="space-y-8 text-[#f4f4f4]/45 text-lg leading-[1.9]">
+              <p className="font-display text-2xl md:text-3xl font-light leading-[1.6] text-[#f4f4f4]/55">
+                Over twenty years of practice. It started as a way back to myself.
               </p>
+
               <p>
-                Diagnosed with a chronic pain disorder in her early twenties,
-                Liane turned to yoga not as a hobby but as a way back to her
-                own body. That need became a discipline. The discipline became
-                a practice. The practice became a life.
+                Diagnosed with a chronic pain disorder in my early twenties, I turned
+                to yoga not as a trend or a hobby but as a lifeline. What began as
+                self-care became discipline. Discipline became devotion. And somewhere
+                along the way, the practice stopped being something I did and became
+                something I am.
               </p>
+
               <p>
-                She earned her 200-hour certification through the Yoga Center
-                of Minneapolis, training with a focus on nervous system
-                regulation and the quiet, persistent power of mindful movement.
+                I earned my 200-hour certification through the Yoga Center of
+                Minneapolis, training with a deep focus on nervous system regulation
+                and the quiet, persistent power of mindful movement. The body holds
+                everything. Learning to listen to it changed my life. Teaching others
+                to listen to theirs is the work I was meant to do.
               </p>
+
               <p>
-                Two years ago she discovered sound healing and something
-                shifted. The bowls, the frequencies, the way vibration moves
-                through a room and through a body. She began studying sound
-                healing facilitation, drawn to the place where yoga and sound
-                meet and the silence that lives on the other side.
+                Two years ago, I discovered sound healing and something shifted.
+                The bowls, the frequencies, the way vibration moves through a room
+                and settles into the body. I began studying sound healing facilitation,
+                drawn to the space where yoga and sound meet and the stillness that
+                lives on the other side of resonance.
               </p>
+
               <p>
-                LMNO is the space she built to hold that work. Combining yoga
-                and sound to create something whole. Supporting her students in
-                finding balance, peace, and healing on and off the mat.
+                LMNO is the space I built to hold all of it. Yoga rooted in Himalayan
+                Kriya tradition. Sound baths designed for deep restoration. A practice
+                that honors the whole person. I believe healing is not a destination
+                but a rhythm, and my role is to help you find yours.
               </p>
             </div>
           </ScrollReveal>
 
           <ScrollReveal>
-            <div className="mt-20 pt-16 border-t border-[#f4f4f4]/[0.04]">
-              <p className="font-display text-xl text-[#f4f4f4]/35 italic leading-relaxed">
+            <div className="mt-16 pt-12 border-t border-[#f4f4f4]/[0.04]">
+              <p className="text-[#f4f4f4]/30 text-base leading-relaxed">
                 Liane facilitates Sound Baths, Kriya Yoga, and Yoga Nidra.
               </p>
             </div>

@@ -3,7 +3,7 @@ import { MetadataRoute } from 'next';
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://lmnoyoga.com';
 
-  const routes = ['', '/offerings', '/contact'].map(
+  const routes = ['', '/about', '/offerings', '/contact'].map(
     (route) => ({
       url: `${baseUrl}${route}`,
       lastModified: new Date(),
